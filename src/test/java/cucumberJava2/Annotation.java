@@ -44,7 +44,7 @@ System.setProperty("webdriver.chrome.driver","C:\\chromedriver.exe" );
    @Then("^Email placeholder should exist$") 
    public void loginButton() { 
 	   driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-      if(driver.findElement(By.name("email")).isEnabled()) { 
+      if(driver.findElement(By.name("emil")).isEnabled()) { 
          System.out.println("Test 1 Pass"); 
       } else { 
          System.out.println("Test 1 Fail"); 
