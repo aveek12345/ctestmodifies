@@ -46,34 +46,37 @@
    <plugins>
     
      <plugin>
-  <groupId>org.jacoco</groupId>
-  <artifactId>jacoco-maven-plugin</artifactId>
-  <version>0.8.5</version>
-  <configuration>
-    <destFile>${project.build.directory}/coverage-reports/code-coverage.exec</destFile>
-    <dataFile>${project.build.directory}/coverage-reports/code-coverage.exec</dataFile>
-    <outputDirectory>${project.reporting.outputDirectory}/code-coverage</outputDirectory>
-    <propertyName>jacocoArgLine</propertyName>
-    <classDumpDir>${project.build.outputDirectory}</classDumpDir>
-  </configuration>
-  <executions>
-    <execution>
-      <id>prepare-jacoco-agent</id>
-      <goals>
-          <goal>prepare-agent</goal>
-      </goals>
-    </execution>
-    <execution>
-      <id>post-integration-test</id>
-      <phase>post-integration-test</phase>
-      <goals>
-        <goal>report</goal>
-      </goals>
-    </execution>
-  </executions>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-site-plugin</artifactId>
+  <version>3.7.1</version>
 </plugin>
-    </plugins>
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-project-info-reports-plugin</artifactId>
+  <version>3.0.0</version>
+</plugin>
      
+     <plugin>
+    <groupId>org.jacoco</groupId>
+    <artifactId>jacoco-maven-plugin</artifactId>
+    <version>0.8.5</version>
+    <executions>
+      <execution>
+        <id>prepare-agent</id>
+        <goals>
+         <goal>prepare-agent</goal>
+        </goals>
+      </execution>
+      <execution>
+        <id>report</id>
+        <goals>
+         <goal>report</goal>
+        </goals>
+      </execution>
+    </executions>
+    </plugin>
+     
+   </plugins>
   </build>
   
 </project>
