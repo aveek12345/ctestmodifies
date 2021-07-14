@@ -27,13 +27,24 @@ pipeline {
           "files": [
             {
               "pattern": "./target/*CucumberTest2-0.0.1-SNAPSHOT*.jar",
-              "target": "pipeline/"
+              "target": "pipeline2/"
             }
          ]
     } ''')
        }
        
        }
+      
+      stage ('Publish build info') {
+            steps {
+                rtPublishBuildInfo (
+                    
+                    serverId: 'check'
+                )
+
+               
+            }
+        }
        
         stage('Test') {
       steps {
