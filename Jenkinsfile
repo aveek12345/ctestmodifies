@@ -61,11 +61,12 @@ pipeline {
     SCANNER_HOME = tool 'Sonar'
     
   }
-  steps {
+  //In Dsonar.login mention the appropriate login code generated in SonarQube related to the projectkey
+       steps {
     withSonarQubeEnv('Default') {
         bat '''mvn sonar:sonar -Dsonar.projectKey=Sonar3 
   -Dsonar.host.url=http://localhost:9000 
-  -Dsonar.login=c6f8829fc05077e44427d952354e17f32fd5b1be 
+  -Dsonar.login=
   -Dsonar.java.binaries=target/test-classes/cucumberJava2/
   
      '''
